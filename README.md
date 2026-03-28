@@ -1,3 +1,5 @@
+![C1X Workflow Engine Banner](assets/banner.jpg)
+
 # C1X Workflow Builder UI Library
 
 A standalone, framework-agnostic workflow builder built with a pure TypeScript core engine and a high-performance Web Component wrapper. Designed for building and managing Directed Acyclic Graphs (DAGs) with built-in validation, history management, and seamless framework integration.
