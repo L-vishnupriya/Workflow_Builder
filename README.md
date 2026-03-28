@@ -1,5 +1,3 @@
-![C1X Workflow Engine Banner](assets/banner.jpg)
-
 # C1X Workflow Builder UI Library
 
 A standalone, framework-agnostic workflow builder built with a pure TypeScript core engine and a high-performance Web Component wrapper. Designed for building and managing Directed Acyclic Graphs (DAGs) with built-in validation, history management, and seamless framework integration.
@@ -23,7 +21,7 @@ graph TD
 
     subgraph "Core Engine (TypeScript)"
         E --> G[Workflow Store]
-        E --> H[History (Undo/Redo)]
+        E --> H["History (Undo/Redo)"]
         E --> I[DAG Validator]
         E --> J[JSON Serializer]
     end
@@ -49,10 +47,12 @@ graph TD
 ## 📦 Getting Started
 
 ### Prerequisites
+
 - Node.js (v18+)
 - npm
 
 ### Installation & Build
+
 ```bash
 # Install dependencies
 npm install
@@ -62,6 +62,7 @@ npm run build
 ```
 
 The build generates:
+
 - `dist/index.js` (ES Module)
 - `dist/index.cjs` (CommonJS)
 - `dist/index.d.ts` (TypeScript Definitions)
@@ -70,13 +71,16 @@ The build generates:
 ## 🔧 Integration Guide
 
 ### 1. Register the Component
+
 Import the library once at the entry point of your application:
+
 ```ts
 import "c1x-workflow-builder"; // Registers the <c1x-workflow-builder> element
 import "c1x-workflow-builder/dist/c1x-workflow-builder-flowforge.css";
 ```
 
 ### 2. Usage in Templates
+
 ```html
 <c1x-workflow-builder 
   workflow-id="unique-id-001" 
@@ -85,7 +89,9 @@ import "c1x-workflow-builder/dist/c1x-workflow-builder-flowforge.css";
 ```
 
 ### 3. Public API Methods
+
 Access the component instance to interact with the workflow:
+
 ```ts
 const builder = document.querySelector("c1x-workflow-builder");
 
@@ -104,7 +110,9 @@ builder.fitToScreen();
 ```
 
 ### 4. Event System
+
 Listen for state changes and user interactions:
+
 ```ts
 builder.addEventListener('workflow-ready', (e) => console.log('Engine Initialized'));
 builder.addEventListener('workflow-change', (e) => console.log('Workflow Updated', e.detail));
@@ -114,9 +122,6 @@ builder.addEventListener('workflow-validation-failed', (e) => console.error('Cyc
 ## 📖 Framework-Specific Examples
 
 Detailed examples are provided in the `/examples` directory:
-- **[React Demo](file:///home/boss/Desktop/hack_new_c/final_project/examples/react-demo)**: Shows how to use the builder within a React functional component.
-- **[Angular Demo](file:///home/boss/Desktop/hack_new_c/final_project/examples/angular-demo)**: Demonstrates integration with `CUSTOM_ELEMENTS_SCHEMA`.
 
----
-
-© 2026 C1X Workflow Builder Team
+- **React Demo**: Shows how to use the builder within a React functional component.
+- **Angular Demo**: Demonstrates integration with `CUSTOM_ELEMENTS_SCHEMA`.
