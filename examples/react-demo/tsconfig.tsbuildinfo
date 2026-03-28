@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/declarations.d.ts","./src/main.tsx","./src/vite-env.d.ts","./src/components/jsonpreviewpanel.tsx","./src/components/toolbar.tsx","./src/components/validationpanel.tsx","./src/components/workflowbuilderwrapper.tsx"],"version":"5.9.3"}

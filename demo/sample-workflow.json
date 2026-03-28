@@ -1,0 +1,79 @@
+{
+  "workflowId": "c1x-cart-abandonment-001",
+  "nodes": [
+    {
+      "id": "n_audience_01",
+      "type": "audience",
+      "position": { "x": 340, "y": 60 },
+      "params": {
+        "segmentName": "Cart Abandoners — Last 7 Days"
+      }
+    },
+    {
+      "id": "n_wait_01",
+      "type": "wait",
+      "position": { "x": 340, "y": 200 },
+      "params": {
+        "duration": 2,
+        "unit": "days"
+      }
+    },
+    {
+      "id": "n_filter_01",
+      "type": "filter",
+      "position": { "x": 340, "y": 340 },
+      "params": {
+        "condition": "not_purchased",
+        "value": "Last 2 Days"
+      }
+    },
+    {
+      "id": "n_split_01",
+      "type": "split",
+      "position": { "x": 340, "y": 480 },
+      "params": {
+        "condition": "Preferred communication channel",
+        "branches": ["Email", "SMS"]
+      }
+    },
+    {
+      "id": "n_action_email",
+      "type": "action",
+      "position": { "x": 160, "y": 640 },
+      "params": {
+        "channel": "email",
+        "templateId": "T-CART-EMAIL-01"
+      }
+    },
+    {
+      "id": "n_action_sms",
+      "type": "action",
+      "position": { "x": 520, "y": 640 },
+      "params": {
+        "channel": "sms",
+        "templateId": "T-CART-SMS-01"
+      }
+    },
+    {
+      "id": "n_end_01",
+      "type": "end",
+      "position": { "x": 160, "y": 780 },
+      "params": { "label": "Email Path End" }
+    },
+    {
+      "id": "n_end_02",
+      "type": "end",
+      "position": { "x": 520, "y": 780 },
+      "params": { "label": "SMS Path End" }
+    }
+  ],
+  "edges": [
+    { "id": "e_aud", "source": "n_audience_01", "target": "n_wait_01" },
+    { "id": "e_wait", "source": "n_wait_01",     "target": "n_filter_01" },
+    { "id": "e_filter", "source": "n_filter_01",   "target": "n_split_01" },
+    { "id": "e_split_a", "source": "n_split_01",    "target": "n_action_email" },
+    { "id": "e_split_b", "source": "n_split_01",    "target": "n_action_sms" },
+    { "id": "e_end_a", "source": "n_action_email","target": "n_end_01" },
+    { "id": "e_end_b", "source": "n_action_sms",  "target": "n_end_02" }
+  ]
+}

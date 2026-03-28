@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>C1X Workflow Engine — Demo</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+
+    <!-- Demo page specific styles -->
+    <link rel="stylesheet" href="./styles/demo.css" />
+
+    <!-- Shoelace Theme Variables -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
+    />
+
+    <!-- Built Component Import -->
+    <!-- Note: run `npm run build` in the project root before opening this demo. -->
+    <script type="module" src="../dist/index.js"></script>
+  </head>
+  <body>
+    <noscript>This demo requires JavaScript to run.</noscript>
+    <div id="loading-screen" class="loading-screen">
+      Loading C1X Workflow Engine...
+    </div>
+
+    <header class="demo-header">
+      <div class="demo-header-left">
+        <!-- Simple SVG placeholder for C1X Logo -->
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          class="c1x-logo"
+        >
+          <path
+            d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+            stroke="#FFFFFF"
+            stroke-width="2"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <h1>
+          <strong>Workflow Engine</strong> <span class="accent-text">Demo</span>
+        </h1>
+        <span class="subtitle"
+          >Framework-agnostic · TypeScript · Web Components</span
+        >
+      </div>
+      <div class="demo-header-right">
+        <sl-badge variant="neutral">v1.0.0</sl-badge>
+        <span id="ready-status" class="ready-status pending">
+          <span class="ready-dot"></span>
+          Initializing
+        </span>
+        <sl-button size="small" variant="default" outline id="github-btn">
+          GitHub ↗
+        </sl-button>
+      </div>
+    </header>
+
+    <main class="demo-main">
+      <section class="builder-section">
+        <!-- The Web Component -->
+        <c1x-workflow-builder
+          id="builder"
+          workflow-id="demo-001"
+        ></c1x-workflow-builder>
+      </section>
+
+      <aside class="output-section">
+        <div class="output-tabs">
+          <button id="tab-json" class="tab-btn active">JSON Output</button>
+          <button id="tab-validation" class="tab-btn">Validation</button>
+        </div>
+
+        <div class="demo-controls">
+          <button id="btn-undo" class="demo-btn">Undo</button>
+          <button id="btn-redo" class="demo-btn">Redo</button>
+          <button id="btn-load-sample" class="demo-btn">Load Sample</button>
+          <button id="btn-fit" class="demo-btn">Fit</button>
+          <button id="btn-validate" class="demo-btn primary">Validate</button>
+          <button id="btn-export" class="demo-btn">Export</button>
+        </div>
+
+        <div class="output-body" id="panel-json">
+          <div class="json-summary" id="json-summary">0 nodes · 0 edges</div>
+          <pre id="json-output" class="json-preview"></pre>
+        </div>
+
+        <div class="output-body" id="panel-validation" style="display: none">
+          <div id="validation-output"></div>
+          <sl-button
+            variant="primary"
+            id="revalidate-btn"
+            style="margin-top: 16px"
+            >Run Validation Again</sl-button
+          >
+        </div>
+      </aside>
+    </main>
+
+    <footer class="demo-footer">
+      Built with C1X Workflow Engine · Framework Agnostic · TypeScript
+    </footer>
+
+    <script type="module" src="./scripts/demo-boot.ts"></script>
+  </body>
+</html>

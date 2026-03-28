@@ -1,0 +1,44 @@
+{
+  "name": "c1x-workflow-builder-flowforge",
+  "version": "1.0.0",
+  "description": "Core Workflow Engine",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "./dist/index.js"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "build": "vite build",
+    "dev:watch": "vite build --watch",
+    "smoke:apps": "node scripts/smoke-apps.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "jsdom": "^29.0.1",
+    "ts-morph": "^27.0.2",
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.2",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^4.1.1"
+  },
+  "dependencies": {
+    "@shoelace-style/shoelace": "^2.20.1",
+    "litegraph.js": "^0.7.18"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "hash": "6d4cc3ae",
+  "configHash": "7f00bbfc",
+  "lockfileHash": "76fef990",
+  "browserHash": "959338a2",
+  "optimized": {
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "24dee5e7",
+      "needsInterop": false
+    },
+    "@angular/core": {
+      "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
+      "file": "@angular_core.js",
+      "fileHash": "a9fcf13d",
+      "needsInterop": false
+    },
+    "@angular/platform-browser": {
+      "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
+      "file": "@angular_platform-browser.js",
+      "fileHash": "4974a2bc",
+      "needsInterop": false
+    },
+    "litegraph.js": {
+      "src": "../../../../../../../../node_modules/litegraph.js/build/litegraph.js",
+      "file": "litegraph__js.js",
+      "fileHash": "a67a51f5",
+      "needsInterop": true
+    }
+  },
+  "chunks": {
+    "chunk-5ISRMGXA": {
+      "file": "chunk-5ISRMGXA.js"
+    },
+    "chunk-CMWJTQBJ": {
+      "file": "chunk-CMWJTQBJ.js"
+    },
+    "chunk-3OV72XIM": {
+      "file": "chunk-3OV72XIM.js"
+    }
+  }
+}

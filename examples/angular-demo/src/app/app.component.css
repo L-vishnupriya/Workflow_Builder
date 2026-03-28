@@ -1,0 +1,205 @@
+.app-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+  background:
+    radial-gradient(1200px 500px at 80% -20%, #ececec 0%, transparent 70%),
+    linear-gradient(180deg, #f7f7f7 0%, #efefef 100%);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.app-header {
+  --brand-orange: #e8571a;
+  --brand-dark: #3a3a3a;
+  --brand-light: #c8c8c8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: #fff;
+  border-bottom: 1px solid var(--brand-light);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.app-title {
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: #3a3a3a;
+}
+
+.app-center-controls,
+.app-right-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: nowrap;
+}
+
+.app-center-controls {
+  flex: 1;
+  min-width: max-content;
+  justify-content: flex-start;
+}
+
+.app-right-controls {
+  flex: 0 0 auto;
+}
+
+.toolbar-separator {
+  width: 1px;
+  height: 18px;
+  background: #d5d5d5;
+}
+
+.app-header button {
+  border: 1px solid #d2d2d2;
+  background: #fff;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #3a3a3a;
+  cursor: pointer;
+}
+
+.app-header button:hover:not(:disabled) {
+  border-color: #e8571a;
+  color: #e8571a;
+}
+
+.app-header button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #d2d2d2;
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-pill.ok {
+  border-color: #19a265;
+  color: #0c7b4c;
+  background: #ecfbf3;
+}
+
+.status-pill.bad {
+  border-color: #e05f5f;
+  color: #af2f2f;
+  background: #fdf2f2;
+}
+
+.status-pill.idle {
+  color: #626262;
+  background: #f8f8f8;
+}
+
+.primary-cta {
+  background: #e8571a !important;
+  border-color: #e8571a !important;
+  color: #fff !important;
+}
+
+.app-main {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  grid-template-rows: 1fr;
+}
+
+.builder-section {
+  min-height: 0;
+  border-right: 1px solid #d8d8d8;
+  border-bottom: none;
+}
+
+.output-section {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  background: #fff;
+  border-top: none;
+  border-left: 1px solid #d8d8d8;
+  transition:
+    grid-template-columns 0.18s ease,
+    width 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.output-section.collapsed {
+  width: 0;
+  min-width: 0;
+  border-left-color: transparent;
+  overflow: hidden;
+}
+
+.app-main.panel-collapsed {
+  grid-template-columns: 1fr 0;
+}
+
+.output-tabs {
+  display: flex;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.output-tabs button {
+  border: none;
+  background: #f4f4f4;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  color: #585858;
+  border-radius: 0;
+}
+
+.output-tabs button.active {
+  background: #fff !important;
+  border-bottom: 2px solid #e8571a;
+  color: #3a3a3a;
+}
+
+.output-body {
+  min-height: 0;
+  overflow: auto;
+}
+
+.builder-section c1x-workflow-builder {
+  min-width: 0;
+}
+
+.demo-toast {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 9999;
+  background: #3a3a3a;
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 1180px) {
+  .app-main {
+    grid-template-columns: 1fr 300px;
+  }
+
+  .app-header {
+    padding-bottom: 8px;
+  }
+}

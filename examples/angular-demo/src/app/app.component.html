@@ -1,0 +1,81 @@
+<div class="app-layout">
+  <header class="app-header">
+    <div class="app-title">C1X Workflow Builder</div>
+
+    <div class="app-center-controls">
+      <button [disabled]="!canUndo" (click)="builder.undo()">Undo</button>
+      <button [disabled]="!canRedo" (click)="builder.redo()">Redo</button>
+      <span class="toolbar-separator" aria-hidden="true"></span>
+      <button (click)="builder.fitToScreen()">Auto Layout</button>
+      <button (click)="builder.fitToScreen()">Fit</button>
+      <span class="toolbar-separator" aria-hidden="true"></span>
+      <button (click)="onLoadSample()">Load Sample</button>
+    </div>
+
+    <div class="app-right-controls">
+      <div
+        class="status-pill"
+        [class.ok]="validationResult?.valid"
+        [class.bad]="validationResult && !validationResult.valid"
+        [class.idle]="!validationResult"
+      >
+        {{
+          validationResult
+            ? validationResult.valid
+              ? "Validation: Valid"
+              : "Validation: " + validationResult.errors.length + " issues"
+            : isReady
+              ? "Validation: Not run"
+              : "Initializing"
+        }}
+      </div>
+      <button (click)="panelOpen = !panelOpen">
+        {{ panelOpen ? "Hide Panel" : "Show Panel" }}
+      </button>
+      <button (click)="onValidate()">Validate</button>
+      <button class="primary-cta" (click)="onExport()">Export</button>
+    </div>
+  </header>
+
+  <main class="app-main" [class.panel-collapsed]="!panelOpen">
+    <section class="builder-section">
+      <app-workflow-builder
+        #builder
+        (ready)="onReady()"
+        (workflowChange)="onWorkflowChange($event)"
+        (historyChanged)="onHistoryChanged($event)"
+        (validationFailed)="onValidationFailed($event)"
+      ></app-workflow-builder>
+    </section>
+
+    <aside class="output-section" [class.collapsed]="!panelOpen">
+      <div class="output-tabs">
+        <button
+          [class.active]="activeTab === 'validation'"
+          (click)="activeTab = 'validation'"
+        >
+          Validation
+        </button>
+        <button
+          [class.active]="activeTab === 'json'"
+          (click)="activeTab = 'json'"
+        >
+          JSON Output
+        </button>
+      </div>
+
+      <div class="output-body">
+        <app-json-preview
+          *ngIf="activeTab === 'json'"
+          [json]="workflowJson"
+        ></app-json-preview>
+        <app-validation-panel
+          *ngIf="activeTab === 'validation'"
+          [result]="validationResult"
+        ></app-validation-panel>
+      </div>
+    </aside>
+  </main>
+
+  <div class="demo-toast" *ngIf="toastMessage">{{ toastMessage }}</div>
+</div>
